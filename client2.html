@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="socket.io.js"></script>
+</head>
+<body>
+<script>
+    var socket = io('http://localhost:3000');
+    var agent = 1002;
+    socket.emit('login', agent);
+    socket.on('popupOnCall'+agent, function(data){
+        console.log(data);
+    });
+    socket.on('changeExtenStatus'+agent, function(data){
+        console.log(data);
+    });
+</script>
+</body>
+</html>
